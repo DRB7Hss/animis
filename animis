@@ -1,0 +1,99 @@
+local _0xO1 = "Character" local _0xO2 = "Animate" local _0xO3 = "Humanoid" local _0xO4 = "Animation" local _0xO5 = "PlayerGui"
+local _0xX1 = game:GetService("\101\120\112\108\111\115\105\111\110" == "Character" and "Players" or "Players")
+local _0xX2 = game:GetService("\84\119\101\101\110\83\101\114\118\105\99\101")
+local _0xX3 = _0xX1.LocalPlayer
+
+local _0xG1 = Instance.new("\83\99\114\101\101\110\71\117\105") _0xG1.Name = "AnimationsMenuGui" _0xG1.ResetOnSpawn = false _0xG1.Parent = _0xX3:WaitForChild(_0xO5)
+local _0xG2 = Instance.new("\70\114\97\109\101") _0xG2.Name = "MainFrame" _0xG2.Size = UDim2.new(0, 280, 0, 450) _0xG2.Position = UDim2.new(1, -310, 0.5, -225)
+_0xG2.BackgroundColor3 = Color3.fromRGB(20, 20, 20) _0xG2.BorderSizePixel = 0 _0xG2.Active = true _0xG2.Draggable = true _0xG2.Parent = _0xG1
+
+local _0xG3 = Instance.new("\85\73\67\111\114\110\101\114") _0xG3.CornerRadius = UDim.new(0, 12) _0xG3.Parent = _0xG2
+local _0xG4 = Instance.new("\85\73\83\116\114\111\107\101") _0xG4.Color = Color3.fromRGB(212, 175, 55) _0xG4.Thickness = 2 _0xG4.Parent = _0xG2
+
+local _0xG5 = Instance.new("\84\101\120\116\76\97\98\101\108") _0xG5.Size = UDim2.new(1, 0, 0, 45) _0xG5.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+_0xG5.Text = "ANIMATIONS MENU" _0xG5.TextColor3 = Color3.fromRGB(212, 175, 55) _0xG5.Font = Enum.Font.GothamBold _0xG5.TextSize = 16 _0xG5.Parent = _0xG2
+local _0xG6 = Instance.new("\85\73\67\111\114\110\101\114") _0xG6.CornerRadius = UDim.new(0, 12) _0xG6.Parent = _0xG5
+
+local _0xG7 = Instance.new("\83\99\114\111\108\108\105\110\103\70\114\97\109\101") _0xG7.Size = UDim2.new(1, -20, 1, -60) _0xG7.Position = UDim2.new(0, 10, 0, 50)
+_0xG7.BackgroundTransparency = 1 _0xG7.BorderSizePixel = 0 _0xG7.ScrollBarThickness = 4 _0xG7.ScrollBarImageColor3 = Color3.fromRGB(212, 175, 55)
+_0xG7.CanvasSize = UDim2.new(0, 0, 0, 0) _0xG7.Parent = _0xG2
+
+local _0xL1 = Instance.new("\85\73\76\105\115\116\76\97\121\111\117\116") _0xL1.Parent = _0xG7 _0xL1.SortOrder = Enum.SortOrder.LayoutOrder _0xL1.Padding = UDim.new(0, 10)
+_0xL1:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function() _0xG7.CanvasSize = UDim2.new(0, 0, 0, _0xL1.AbsoluteContentSize.Y + 20) end)
+
+local _0xD = {
+	{n = "Adidas", i = {"18537376492", "18537371272", "18537392113", "18537384940", "18537380791", "18537363391", "18537367238"}},
+	{n = "R6", i = {"12521158637", "12521162526", "12518152696", "12520880485", "12520982150", "12520972571", "12520972571"}},
+	{n = "AdidasSport", i = {"122257458498464", "102357151005774", "122150855457006", "82598234841035", "75290611992385", "88763136693023", "98600215928904", "77672872857991", "113603435314095", "130072963359721", "91788124131212", "121075390792786", "102674302534126"}},
+	{n = "Hero", i = {"616111295", "616113536", "616122287", "616117076", "616115533", "616104706", "616108001"}},
+	{n = "Default", i = {"2510196951", "2510197257", "2510202577", "2510198475", "2510197830", "2510192778", "2510195892"}},
+	{n = "ZombieClassic", i = {"616158929", "616160636", "616168032", "616163682", "616161997", "616156119", "616157476"}},
+	{n = "Mage", i = {"707742142", "707855907", "707897309", "707861613", "707853694", "707826056", "707829716"}},
+	{n = "Ghost", i = {"616006778", "616008087", "616010382", "616013216", "616008936", "616003713", "616005863"}},
+	{n = "Elder", i = {"845397899", "845400520", "845403856", "845386501", "845398858", "845392038", "845396048"}},
+	{n = "Robot", i = {"616088211", "616089559", "616095330", "616091570", "616090535", "616086039", "616087089"}},
+	{n = "Bubbly", i = {"910004836", "910009958", "910034870", "910025107", "910016857", "910001910", "910030921", "910028158"}},
+	{n = "Levitation", i = {}},
+	{n = "Astronaut", i = {"891621366", "891633237", "891667138", "891636393", "891627522", "891609353", "891617961"}},
+	{n = "Ninja", i = {"656117400", "656118341", "656121766", "656118852", "656117878", "656114359", "656115606"}},
+	{n = "Cartoon", i = {"742637544", "742638445", "742640026", "742638842", "742637942", "742636889", "742637151"}},
+	{n = "Pirate", i = {"750781874", "750782770", "750785693", "750783738", "750782230", "750779899", "750780242"}},
+	{n = "Sneaky", i = {"1132473842", "1132477671", "1132510133", "1132494274", "1132489853", "1132461372", "1132469004"}},
+	{n = "Toy", i = {"782841498", "782845736", "782843345", "782842708", "782847020", "782843869", "782846423"}},
+	{n = "Knight", i = {"657595757", "657568135", "657552124", "657564596", "658409194", "658360781", "657600338"}},
+	{n = "Stylized", i = {"4708191566", "4708192150", "4708193840", "4708192705", "4708188025", "4708184253", "4708186162"}},
+	{n = "Stylish", i = {"616136790", "616138447", "616146177", "616140816", "616139451", "616133594", "616134815"}},
+	{n = "Confident", i = {"1069977950", "1069987858", "1070017263", "1070001516", "1069984524", "1069946257", "1069973677"}},
+	{n = "Popstar", i = {"1212900985", "1212980338", "1212980348", "1212954642", "1213044953", "1212900995"}},
+	{n = "Princess", i = {"941003647", "941013098", "941028902", "941015281", "941008832", "940996062", "941000007"}},
+	{n = "Cowboy", i = {"1014390418", "1014398616", "1014421541", "1014401683", "1014394726", "1014380606", "1014384571"}},
+	{n = "Werewolf", i = {"10921333667", "10921330408", "10921342074", "10921336997", "1083218792", "10921329322", "10921337907", "1212901596", "1212903589", "1212905204", "1212903202", "1212902920", "1212902410"}},
+	{n = "NoBoundries", i = {"18747067405", "18747063918", "18747074203", "18747070484", "18747069148", "18747060903", "18747062535"}},
+	{n = "Basket", i = {"92080889861410", "74451233229259", "110358958299415", "117333533048078", "119846112151352", "134630013742019", "129773241321032"}},
+	{n = "Patrol", i = {"1149612882", "1149613908", "1151231493", "1150967949", "1148811837", "1148863382"}},
+	{n = "ZombieFE", i = {"3489171152", "3489172319", "3489174223", "3489173414", "3489170926", "3489171554"}},
+	{n = "GlowAnimation", i = {"101925097435036", "137764781910579", "108236155509584", "85809016093530", "83003487432457", "74159004634379", "98070939608691"}},
+	{n = "Dancer", i = {"92849173543269", "132238900951109", "73718308412641", "135515454877967", "78508480717326", "129447497744818", "78147885297412"}},
+	{n = "Mt7ms", i = {"98281136301627", "138183121662404", "90478085024465", "134824450619865", "121454505477205", "121145883950231", "94788218468396"}},
+	{n = "CatWalk", i = {"133806214992291", "94970088341563", "109168724482748", "81024476153754", "116936326516985", "119377220967554", "92294537340807"}},
+	{n = "AdidasAura", i = {"110211186840347", "114191137265065", "83842218823011", "118320322718866", "109996626521204", "97824616490448", "95603166884636"}}
+}
+
+local function _0xP1(_0xK1)
+	local _0xC1 = _0xX3[_0xO1] or _0xX3.CharacterAdded:Wait()
+	local _0xAS = _0xC1:WaitForChild(_0xO2, 5)
+	if _0xAS and #_0xK1 > 0 then
+		local _0xT = {"\119\97\108\107", "\114\117\110", "\106\117\109\112", "\102\97\108\108", "\105\100\108\101", "\115\119\105\109"}
+		for _0xIdx, _0xVal in ipairs(_0xT) do
+			local _0xF = _0xAS:FindFirstChild(_0xVal)
+			if _0xF then
+				local _0xAnim = _0xF:FindFirstChildOfClass(_0xO4)
+				if _0xAnim and _0xK1[_0xIdx] then
+					local _0xId = string.match(_0xK1[_0xIdx], "%d+")
+					if _0xId then _0xAnim.AnimationId = "rbxassetid://" .. _0xId end
+				end
+			end
+		end
+		local _0xH = _0xC1:FindFirstChildOfClass(_0xO3)
+		if _0xH then
+			for _, _0xTrack in ipairs(_0xH:GetPlayingAnimationTracks()) do _0xTrack:Stop() end
+		end
+	end
+end
+
+for _, _0xItem in ipairs(_0xD) do
+	local _0xCon = Instance.new("\70\114\97\109\101") _0xCon.Size = UDim2.new(1, -10, 0, 40) _0xCon.BackgroundTransparency = 1 _0xCon.BorderSizePixel = 0 _0xCon.Parent = _0xG7
+	local _0xBtn = Instance.new("\84\101\120\116\66\117\116\116\111\110") _0xBtn.Size = UDim2.new(0, 210, 1, 0) _0xBtn.Position = UDim2.new(0, 5, 0, 0)
+	_0xBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30) _0xBtn.Text = _0xItem.n _0xBtn.TextColor3 = Color3.fromRGB(212, 175, 55)
+	_0xBtn.Font = Enum.Font.GothamMedium _0xBtn.TextSize = 14 _0xBtn.BorderSizePixel = 0 _0xBtn.Parent = _0xCon
+	
+	local _0xBC = Instance.new("\85\73\67\111\114\110\101\114") _0xBC.CornerRadius = UDim.new(0, 8) _0xBC.Parent = _0xBtn
+	local _0xBS = Instance.new("\85\73\83\116\114\111\107\101") _0xBS.Color = Color3.fromRGB(212, 175, 55) _0xBS.Thickness = 1 _0xBS.Parent = _0xBtn
+	
+	local _0xM = Instance.new("\84\101\120\116\76\97\98\101\108") _0xM.Size = UDim2.new(0, 30, 1, 0) _0xM.Position = UDim2.new(0, 220, 0, 0)
+	_0xM.BackgroundTransparency = 1 _0xM.Text = "🖱️" _0xM.TextSize = 18 _0xM.TextColor3 = Color3.fromRGB(255, 255, 255) _0xM.Parent = _0xCon
+
+	_0xBtn.MouseEnter:Connect(function() _0xX2:Create(_0xBtn, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(212, 175, 55), TextColor3 = Color3.fromRGB(20, 20, 20)}):Play() end)
+	_0xBtn.MouseLeave:Connect(function() _0xX2:Create(_0xBtn, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(30, 30, 30), TextColor3 = Color3.fromRGB(212, 175, 55)}):Play() end)
+	_0xBtn.MouseButton1Click:Connect(function() _0xBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255) task.wait(0.05) _0xBtn.BackgroundColor3 = Color3.fromRGB(212, 175, 55) _0xP1(_0xItem.i) end)
+end
